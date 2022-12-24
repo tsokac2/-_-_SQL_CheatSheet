@@ -1,9 +1,14 @@
 
 <h1 align="center">SQL Commands</h1>
 
-## Show Users
+### Show Users
 ```
 SELECT User, Host FROM mysql.user;
+```
+
+### Create User
+```
+CREATE USER "someuser'@'localhost" IDENTIFED BY "somepassword";
 ```
 
 
