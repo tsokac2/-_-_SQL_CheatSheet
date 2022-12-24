@@ -1,3 +1,12 @@
+
+<h1 align="center">SQL Commands</h1>
+
+## Show Users
+```
+SELECT User, Host FROM mysql.user;
+```
+
+
 <h1 align="center">SQL Challenges</h1>
 
 ### 1. From the following tables, write a SQL query to find the information on each salesperson of ABC Company. Return name, city, country and state of each salesperson.
