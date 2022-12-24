@@ -91,7 +91,7 @@ LIMIT 1 OFFSET 1;
 
 ##
 
-### 3.  From the following table, write a SQL query to find the $N^25$ highest sale. Return sale amount.
+### 3.  From the following table, write a SQL query to find the $N^/th/$ highest sale. Return sale amount.
 
 ### Input
 
