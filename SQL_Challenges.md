@@ -122,3 +122,43 @@ SELECT * FROM salemast;
 |                   3500|
 
 ## 
+
+### 4. From the following table, write a SQL query to find the marks, which appear at least thrice one after another without interruption. Return the number.
+
+### Input
+
+### Table: _logs_
+
+|student_id|marks|
+|----------|-----|
+|       101|   83|
+|       102|   79|
+|       103|   83|
+|       104|   83|
+|       105|   83|
+|       106|   79|
+|       107|   79|
+|       108|   83|
+
+```
+CREATE TABLE IF NOT EXISTS logs (student_id int, marks int);
+TRUNCATE TABLE logs;
+INSERT INTO logs (student_id, marks) VALUES ('101', '83');
+INSERT INTO logs (student_id, marks) VALUES ('102', '79');
+INSERT INTO logs (student_id, marks) VALUES ('103', '83');
+INSERT INTO logs (student_id, marks) VALUES ('104', '83');
+INSERT INTO logs (student_id, marks) VALUES ('105', '83');
+INSERT INTO logs (student_id, marks) VALUES ('106', '79');
+INSERT INTO logs (student_id, marks) VALUES ('107', '79');
+INSERT INTO logs (student_id, marks) VALUES ('108', '83');
+select * from logs;
+SELECT DISTINCT L1.marks AS  ConsecutiveNums
+FROM (logs L1 JOIN logs L2 ON L1.marks = L2.marks AND L1.student_id = L2.student_id-1)
+JOIN logs L3 ON L1.marks = L3.marks AND L2.student_id = L3.student_id-1;
+```
+
+### Output
+
+|ConsecutiveNums|
+|---------------|
+|             83|
