@@ -50,6 +50,7 @@ ON salespersons.salesperson_id = address.salesperson_id;
 |Bryant    |Davis    |Denver     |Colorado  |
 |Green     |Wright   |           |          |
 
+##
 
 ## 2. From the following table, write a SQL query to find the third highest sale. Return sale amount.
 
