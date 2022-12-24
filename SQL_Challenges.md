@@ -20,6 +20,9 @@
 |         2|             3|Denver     |Colorado  |USA    |
 |         3|             4|Atlanta    |Georgia   |USA    |
 
+
+### Solution
+
 ```
 CREATE TABLE IF NOT EXISTS salespersons(salesperson_id int, first_name varchar(255), last_name varchar(255));
 CREATE TABLE IF NOT EXISTS address (address_id int, salesperson_id  int, city varchar(255), state varchar(255), country varchar(255));
@@ -63,6 +66,8 @@ ON salespersons.salesperson_id = address.salesperson_id;
 |      3|       1003|2012-04-10|    3500|
 |      3|       1003|2012-04-10|    2500|
 
+### Solution
+
 ```
 CREATE TABLE If Not Exists salemast(sale_id int, employee_id int, sale_date date, sale_amt int);
 TRUNCATE TABLE salemast;
@@ -86,3 +91,34 @@ LIMIT 1 OFFSET 1;
 |             4500|
 
 ##
+
+### 3.  From the following table, write a SQL query to find the Nth highest sale. Return sale amount.
+
+### Input
+
+### Table: _salemast_
+
+|sale_id|employee_id|sale_date |sale_amt|
+|-------|-----------|----------|--------|
+|      1|       1000|2012-03-08|    4500|
+|      2|       1001|2012-03-09|    5500|
+|      3|       1003|2012-04-10|    3500|
+
+### Solution
+```
+CREATE TABLE IF NOT EXISTS salemast(sale_id int, employee_id int, sale_date date, sale_amt int);
+TRUNCATE TABLE salemast;
+INSERT INTO salemast (sale_id, employee_id, sale_date, sale_amt) VALUES ('1', '1000', '2012-03-08', 4500);
+INSERT INTO salemast (sale_id, employee_id, sale_date, sale_amt) VALUES ('2', '1001', '2012-03-09', 5500);
+INSERT INTO salemast (sale_id, employee_id, sale_date, sale_amt) VALUES ('3', '1003', '2012-04-10', 3500); 
+SELECT * FROM salemast;
+```
+
+
+### Output:
+
+|getNthHighestSaleAmt(3)|
+|-----------------------|
+|                   3500|
+
+## 
