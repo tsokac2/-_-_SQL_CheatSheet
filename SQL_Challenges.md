@@ -1,6 +1,6 @@
 <h1 align="center">SQL Challenges</h1>
 
-## 1. From the following tables, write a SQL query to find the information on each salesperson of ABC Company. Return name, city, country and state of each salesperson.
+### 1. From the following tables, write a SQL query to find the information on each salesperson of ABC Company. Return name, city, country and state of each salesperson.
 
 ### Input
 
@@ -52,7 +52,7 @@ ON salespersons.salesperson_id = address.salesperson_id;
 
 ##
 
-## 2. From the following table, write a SQL query to find the third highest sale. Return sale amount.
+### 2. From the following table, write a SQL query to find the third highest sale. Return sale amount.
 
 ### Table: _salemast_
 
@@ -85,3 +85,4 @@ LIMIT 1 OFFSET 1;
 |-----------------|
 |             4500|
 
+##
