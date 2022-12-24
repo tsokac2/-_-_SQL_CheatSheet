@@ -299,8 +299,8 @@ SELECT * FROM employees;
 ### Output
 
 |employee_id|employee_name|email_id     |
------------|-------------|-------------|
-        101|Liam Alton   |li.al@abc.com|
-        102|Josh Day     |jo.da@abc.com|
-        103|Sean Mann    |se.ma@abc.com|
-        104|Evan Blake   |ev.bl@abc.com|
+|-----------|-------------|-------------|
+|        101|Liam Alton   |li.al@abc.com|
+|        102|Josh Day     |jo.da@abc.com|
+|        103|Sean Mann    |se.ma@abc.com|
+|        104|Evan Blake   |ev.bl@abc.com|
