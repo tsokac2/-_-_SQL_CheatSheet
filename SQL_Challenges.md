@@ -8,9 +8,70 @@ SELECT User, Host FROM mysql.user;
 
 ### Create User
 ```
-CREATE USER "someuser'@'localhost" IDENTIFED BY "somepassword";
+CREATE USER "someuser'@'localhost" IDENTIFIED BY "somepassword";
 ```
 
+### Grant All Priveleges On All Databases
+```
+GRANT ALL PRIVILEGES ON * . * TO 'someuser'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+### Show Grants
+```
+SHOW GRANTS FOR 'someuser'@'localhost';
+```
+
+### Remove Grants
+```
+REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'someuser'@'localhost';
+```
+
+### Delete User
+```
+DROP USER 'someuser'@'localhost';
+```
+
+### Exit
+```
+exit;
+```
+
+### Show Databases
+```
+SHOW DATABASES
+```
+
+### Create Database
+```
+CREATE DATABASE acme;
+```
+
+### Delete Database
+```
+DROP DATABASE acme;
+```
+
+### Select Database
+```
+USE acme;
+```
+
+### Create Table
+```
+CREATE TABLE users(
+id INT AUTO_INCREMENT,
+   first_name VARCHAR(100),
+   last_name VARCHAR(100),
+   email VARCHAR(50),
+   password VARCHAR(20),
+   location VARCHAR(100),
+   dept VARCHAR(100),
+   is_admin TINYINT(1),
+   register_date DATETIME,
+   PRIMARY KEY(id)
+);
+```
 
 <h1 align="center">SQL Challenges</h1>
 
