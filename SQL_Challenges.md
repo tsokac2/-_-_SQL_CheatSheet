@@ -123,7 +123,7 @@ SELECT * FROM salemast;
 
 ## 
 
-### 4. From the following table, write a SQL query to find the marks, which appear at least thrice one after another without interruption. Return the number.
+### 4. From the following table, write a SQL query to find the marks, which appear at least 3 times one after another without interruption. Return the number.
 
 ### Input
 
@@ -139,6 +139,8 @@ SELECT * FROM salemast;
 |       106|   79|
 |       107|   79|
 |       108|   83|
+
+### Solution
 
 ```
 CREATE TABLE IF NOT EXISTS logs (student_id int, marks int);
@@ -162,3 +164,46 @@ JOIN logs L3 ON L1.marks = L3.marks AND L2.student_id = L3.student_id-1;
 |ConsecutiveNums|
 |---------------|
 |             83|
+
+##
+
+### 5. From the following table, write a SQL query to find all the duplicate emails (no upper case letters) of the employees. Return email id.
+
+### Input
+
+### Table: _employees_
+
+|employee_id|employee_name|email_id     |
+|-----------|-------------|-------------|
+|        101|Liam Alton   |li.al@abc.com|
+|        102|Josh Day     |jo.da@abc.com|
+|        103|Sean Mann    |se.ma@abc.com|
+|        104|Evan Blake   |ev.bl@abc.com|
+|        105|Toby Scott   |jo.da@abc.com|
+
+
+### Solution
+```
+CREATE TABLE IF NOT EXISTS employees(employee_id int, employee_name varchar(255), email_id varchar(255));
+TRUNCATE TABLE employees;
+INSERT INTO employees (employee_id,employee_name, email_id) VALUES ('101','Liam Alton', 'li.al@abc.com');
+INSERT INTO employees (employee_id,employee_name, email_id) VALUES ('102','Josh Day', 'jo.da@abc.com');
+INSERT INTO employees (employee_id,employee_name, email_id) VALUES ('103','Sean Mann', 'se.ma@abc.com');	
+INSERT INTO employees (employee_id,employee_name, email_id) VALUES ('104','Evan Blake', 'ev.bl@abc.com');
+INSERT INTO employees (employee_id,employee_name, email_id) VALUES ('105','Toby Scott', 'jo.da@abc.com');
+SELECT * FROM employees;
+
+SELECT email_id FROM
+(
+SELECT email_id, COUNT(email_id) AS nuOfAppearence
+FROM employees
+GROUP BY email_id
+) AS countEmail
+WHERE nuOfAppearence> 1;
+```
+
+### Output
+
+|email_id     |
+|-------------|
+|jo.da@abc.com|
