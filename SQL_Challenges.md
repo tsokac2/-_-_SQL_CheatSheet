@@ -39,7 +39,7 @@ exit;
 
 ### Show Databases
 ```
-SHOW DATABASES
+SHOW DATABASES;
 ```
 
 ### Create Database
@@ -72,6 +72,12 @@ id INT AUTO_INCREMENT,
    PRIMARY KEY(id)
 );
 ```
+
+### Show all tables in DB - first run ``USE database_name;``
+`` SHOW TABLES ``
+
+### Clear the mySLQ console
+`` \! cls ``
 
 <h1 align="center">SQL Challenges</h1>
 
