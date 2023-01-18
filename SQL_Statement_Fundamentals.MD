@@ -40,3 +40,54 @@ Function returns the number of **input rows** that match a specific condition of
 #### Returning total count for _unique_ rows in _amount_ column
 ``SELECT COUNT(DISTINCT amount) FROM payment;``
 
+#
+### SELECT WHERE
+The ``WHERE`` statement allows us to specify conditions on columns for the rows to be returned.
+
+```
+SELECT col1, col2
+FROM table
+WHERE conditions;
+```
+
+#### Returning all the rows with _first_name_ is equal to _'Jared'_
+
+```
+SELECT * FROM customer
+WHERE first_name = 'Jared';
+```
+#### Returning all the rows with _rental_rate_ is grather from 4
+```
+SELECT * FROM film
+WHERE rental_rate > 4;
+```
+```
+SELECT * FROM film
+WHERE rental_rate > 4 AND replacement_cost >= 19.99
+AND rating='R';
+```
+#### Returning the query for coulumn _title_ in _film_ table
+```
+SELECT title FROM film
+WHERE rental_rate > 4 AND replacement_cost >= 19.99
+AND rating='R';
+```
+#### Returning the total sum of rows that satisfied these conditions
+
+```
+SELECT COUNT(*) FROM film
+WHERE rental_rate > 4 AND replacement_cost >= 19.99
+AND rating='R';
+```
+
+#### Returning total sum of rows by using _OR_ operator
+```
+SELECT COUNT(*) FROM film
+WHERE rating = 'R' OR rating = 'PG-13';
+```
+
+#### Returning total sum of rows by using _NOT EQUAL_ operator
+```
+SELECT * FROM film
+WHERE rating != 'R';
+```
