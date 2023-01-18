@@ -15,7 +15,7 @@
 #
 
 ### SELECT DISTINCT - returning a _unique_ values in a column
-DISTINCT keyword operates on a column.
+``DISTINCT`` keyword operates on a column.
 
 ``SELECT DISTINCT column FROM table_name;``
 
@@ -28,6 +28,7 @@ DISTINCT keyword operates on a column.
 #
 ### COUNT
 Function returns the number of **input rows** that match a specific condition of a query
+
 ``SELECT COUNT(column_name) rating FROM table_name;``
 
 #### Returning total count for rows in _payment_ table
