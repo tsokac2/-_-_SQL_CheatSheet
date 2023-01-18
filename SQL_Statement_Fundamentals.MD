@@ -97,3 +97,25 @@ WHERE rating != 'R';
 SELECT email FROM customer
 WHERE first_name = 'Nancy' AND last_name = 'Thomas';
 ```
+#
+### ORDER BY
+To store rows based on a column value, in either ascending or descending order.
+
+**Note:** ASC by default
+```
+SELECT col1, col2
+FROM table_name
+ORDER BY col1 ASC/DESC
+```
+
+#### Returning column _first_name_ orderd by descending order
+```
+SELECT * FROM customer
+ORDER BY first_name DESC;
+```
+
+#### Returning column _store_id_ orderd by descending order and column _first_name_ order by ascending order
+```
+SELECT store_id,first_name,last_name FROM customer
+ORDER BY store_id DESC, first_name ASC;
+```
