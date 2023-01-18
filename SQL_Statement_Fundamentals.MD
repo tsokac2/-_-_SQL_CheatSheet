@@ -91,3 +91,9 @@ WHERE rating = 'R' OR rating = 'PG-13';
 SELECT * FROM film
 WHERE rating != 'R';
 ```
+
+#### Returning _email_ for "Nancy Thomas"
+```
+SELECT email FROM customer
+WHERE first_name = 'Nancy' AND last_name = 'Thomas';
+```
