@@ -140,3 +140,14 @@ WHERE amount != 0.00
 ORDER BY payment_date DESC
 LIMIT 5;
 ```
+
+```
+SELECT title,length FROM film
+ORDER BY length ASC
+LIMIT 5;
+```
+#### Returning a total number of all the movies less then or equal 50 min in _length_
+```
+SELECT COUNT(title) FROM film
+WHERE length <= 50;
+```
