@@ -119,3 +119,24 @@ ORDER BY first_name DESC;
 SELECT store_id,first_name,last_name FROM customer
 ORDER BY store_id DESC, first_name ASC;
 ```
+
+#
+### LIMIT
+Command allows us to limit the number of rows returned for a query.
+
+**LIMIT** goes at the very **end** of a query request and is the last command to be executed.
+
+#### Returning 5 most recent payment_dates 
+
+```
+SELECT * FROM payment
+ORDER BY payment_date DESC
+LIMIT 5;
+```
+#### Returning 5 most recent payment_dates where _amount_ was not equal to 0
+```
+SELECT * FROM payment
+WHERE amount != 0.00
+ORDER BY payment_date DESC
+LIMIT 5;
+```
