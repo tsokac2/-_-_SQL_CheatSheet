@@ -68,7 +68,7 @@ GROUP BY customer_id
 ORDER BY SUM(amount);
 ```
 
-### Challenge
+### Challenge GROUP BY
 #### 01. Return the staff member witht the most process payments
 ```
 SELECT staff_id,COUNT(amount) FROM payment
@@ -93,8 +93,38 @@ ORDER BY SUM(amount) DESC
 LIMIT 5;
 ```
 
+#
+### HAVING
+Allows us to filter **after** an aggregation has already taken place.
 
+```
+SELECT company,SUM(sales)
+FROM finance_table
+GROUP BY company
+HAVING SUM(sales) > 1000;
+```
 
+#### Example - Return all the _amount_ SUM-s are grater 100
+```
+SELECT customer_id,SUM(amount) FROM payment
+GROUP BY customer_id
+HAVING SUM(amount) > 100;
+```
 
+### Challenge HAVING
 
+#### Example - Return customers with more than 40 transaction payments
+```
+SELECT customer_id, COUNT(customer_id) FROM payment
+GROUP BY customer_id
+HAVING COUNT(customer_id) >= 40;
+```
+
+#### Example - Return customers who have spent more that 100$ with _staff_id_ member number 2
+```
+SELECT customer_id, SUM(amount) FROM payment
+WHERE staff_id = 2
+GROUP BY customer_id
+HAVING SUM(amount) > 100;
+```
 
