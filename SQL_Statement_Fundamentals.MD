@@ -174,3 +174,13 @@ WHERE amount NOT BETWEEN 8 AND 9;
 SELECT * FROM payment
 WHERE  payment_date BETWEEN '2007-02-01' AND '2007-02-15';
 ```
+#
+### IN
+Creates a condition that checks to see if a value in included in a list of multiple options.
+
+#### Returning all rows from _amount_ column that have values 0.99, 1.98, 1.99 in _payment_ table
+```
+SELECT * FROM payment
+WHERE amount IN (0.99, 1.98,1.99);
+```
+
