@@ -184,3 +184,39 @@ SELECT * FROM payment
 WHERE amount IN (0.99, 1.98,1.99);
 ```
 
+#### Returning all rows from _amount_ column that _NOT_ have values 0.99, 1.98, 1.99 in _payment_ table
+```
+SELECT * FROM payment
+WHERE amount NOT IN (0.99, 1.98,1.99);
+```
+#### Returning string values
+```
+SELECT * FROM customer
+WHERE first_name IN ('John','Jake','Julie');
+```
+
+#### Returning NOT string values
+```
+SELECT * FROM customer
+WHERE first_name NOT IN ('John','Jake','Julie');
+```
+#
+### LIKE and ILIKE
+* **LIKE** - is case-sensitive
+* **ILIKE** - is case-insensitive
+
+#### Example of usage 
+* All emails ending in '@gmail.com'
+* All names that begin with an 'A'
+* _WHERE_ name _LIKE_ 'A%'  - starts with 'A'
+* _WHERE_ name _LIKE_ '%a'  - ending with 'a'
+
+#### Complex example
+
+``WHERE name LIKE '_her%`;``
+
+* Cheryl  - C **her** yl
+* Theresa - T **her** esa
+* Sherri  - S **her** ri
+
+
