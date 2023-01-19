@@ -58,6 +58,41 @@ ORDER BY SUM(sales)
 LIMIT 5;
 ```
 
+### GROUP BY - Part Two
+
+### Example - Returns two columns - customer_id and sum of amount column per customer_id
+
+```
+SELECT customer_id,SUM(amount) FROM payment
+GROUP BY customer_id
+ORDER BY SUM(amount);
+```
+
+### Challenge
+#### 01. Return the staff member witht the most process payments
+```
+SELECT staff_id,COUNT(amount) FROM payment
+GROUP BY staff_id
+ORDER BY  staff_id;
+```
+
+#### 02. Return the AVG _replacement_cost_ per _rating_
+
+```
+SELECT rating, ROUND(AVG(replacement_cost),2) FROM film
+GROUP BY rating
+ORDER BY ROUND(AVG(replacement_cost),2);
+```
+
+#### 03. Return top 5 customers with most spending amount
+
+```
+SELECT customer_id, SUM(amount) FROM payment
+GROUP BY customer_id
+ORDER BY SUM(amount) DESC
+LIMIT 5;
+```
+
 
 
 
