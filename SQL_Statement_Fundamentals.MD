@@ -151,3 +151,26 @@ LIMIT 5;
 SELECT COUNT(title) FROM film
 WHERE length <= 50;
 ```
+#
+### BETWEEN
+Can be used to match a value against a range of values
+
+#### Returning all _amount_ in range from 8 and 9 in _payment_ table
+```
+SELECT * FROM payment
+WHERE amount BETWEEN 8 AND 9;
+```
+
+#### Returning all _amount_-s that are NOT in range from 8 and 9 in _payment_ table
+
+```
+SELECT * FROM payment
+WHERE amount NOT BETWEEN 8 AND 9;
+```
+
+#### Returning all rows from _payment_ table, _BETWEEN_ '2007-02-01' _AND_ '2007-02-15';
+
+```
+SELECT * FROM payment
+WHERE  payment_date BETWEEN '2007-02-01' AND '2007-02-15';
+```
