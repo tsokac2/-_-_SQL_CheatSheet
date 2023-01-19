@@ -219,4 +219,63 @@ WHERE first_name NOT IN ('John','Jake','Julie');
 * Theresa - T **her** esa
 * Sherri  - S **her** ri
 
+#### Returning _first_name_ starts with 'J'
 
+```
+SELECT * FROM customer
+WHERE first_name LIKE 'J%';
+```
+
+#### Returning _first_name_ starts with 'J' _AND_ last_name starts with 'S'
+**NOTE** - case-sensitive
+```
+SELECT * FROM customer
+WHERE first_name LIKE 'J%' AND last_name LIKE 'S%';
+```
+
+**NOTE** - case-insensitive
+```
+SELECT * FROM customer
+WHERE first_name ILIKE 'j%' AND last_name ILIKE 's%';
+```
+
+### Returning 'er' anywhere in the _first_name_
+```
+SELECT * FROM customer
+WHERE first_name LIKE '%er%';
+```
+
+### Returning 'er' that is NOT anywhere in the _first_name_
+```
+SELECT * FROM customer
+WHERE first_name NOT LIKE '%er%';
+```
+#### More examples
+```
+SELECT * FROM customer
+WHERE first_name LIKE 'A%'AND last_name NOT LIKE 'B%'
+ORDER BY last_name;
+```
+```
+SELECT COUNT(first_name) FROM actor
+WHERE first_name LIKE 'P%';
+```
+#
+### Challenge
+
+#### 1. How many unique district are our customer from?
+
+``SELECT COUNT(DISTINCT(district)) FROM address;``
+
+#### 2. Return total number of rows with rating='R' AND replacement_cost BETWEEN 5 AND 15;
+
+```
+SELECT COUNT(*) FROM film
+WHERE rating='R' AND replacement_cost BETWEEN 5 AND 15;
+```
+
+#### 3. How many films have word "Truman" _somwhere_ in the title
+```
+SELECT COUNT(*) FROM film
+WHERE title LIKE '%Truman%';
+```
