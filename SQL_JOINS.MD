@@ -21,4 +21,24 @@ Informally, a join stitches two tables and puts on the same row records with mat
 ### [Join (SQL)](https://en.wikipedia.org/wiki/Join_(SQL))
 
 #
-###
+### AS
+Creating and _**"alias"**_ for column or result.
+
+**NOTE:** Can't be used in _WHERE_ statement
+
+``SELECT column AS new_name FROM table``
+
+``SELECT SUM(column) AS new_name FROM table``
+
+#### Example - Returns column name _new_revenue_ with the totao SUM amount
+`` SELECT SUM(amount) AS net_revenue FROM payment;``
+
+#### Example - Returns _total_spent_ per _customer_id_
+```
+SELECT customer_id, SUM(amount) AS total_spent
+FROM payment
+GROUP BY customer_id
+HAVING SUM(amount) > 100;
+```
+
+
