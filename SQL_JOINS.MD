@@ -4,13 +4,13 @@ A join clause in SQL – corresponding to a join operation in relational algebra
 
 Informally, a join stitches two tables and puts on the same row records with matching fields:
 
-``INNER``,
+``INNER``
 
-``LEFT OUTER``,
+``LEFT OUTER``
 
-``RIGHT OUTER``,
+``RIGHT OUTER``
 
-``FULL OUTER`` and 
+``FULL OUTER`` 
 
 ``CROSS``.
 
