@@ -12,7 +12,7 @@ Informally, a join stitches two tables and puts on the same row records with mat
 
 ``FULL OUTER`` 
 
-``CROSS``.
+``CROSS``
 
 ### More info:
 
