@@ -40,5 +40,23 @@ FROM payment
 GROUP BY customer_id
 HAVING SUM(amount) > 100;
 ```
+#
+### INNER JOIN
 
+```
+SELECT payment_id, payment.customer_id,first_name
+FROM payment
+INNER JOIN customer
+ON payment.customer_id = customer.customer_id;
+```
+Output:
+
+| |payment_id|customer_id|first_name |
+|--|---------|-----------|-----------|
+| 1|17503    | 314       | Peter     |
+| 2|17503    | 314       | Peter     |
+| 3|17504    | 314       | Peter     |
+| 4|17505    | 314       | Peter     |
+| 5|17506    | 314       | Peter     |
+      
 
