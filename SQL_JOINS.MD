@@ -42,7 +42,29 @@ HAVING SUM(amount) > 100;
 ```
 #
 ### INNER JOIN
+Will result with the set of records that **"match in both"** tables.
 
+
+#### Example - Returns new table where _reg_id_, _name_ and _log_id_ both have values
+
+_Logins.name_ is a column that is present in both tables so we need to specifi from witch table we wand _name_ to be used
+
+```
+SELECT reg_id,Logins.name,log_id
+FROM Registrations
+INNER JOIN Logins
+ON Registrations.name = Logins.name
+```
+Output:
+
+|  |reg_id   |name       |log_id   |
+|--|---------|-----------|---------|
+| 1|17503    | 314       | L17503  |
+| 2|17505    | 315       | L17504  |
+| 3|17506    | 316       | L17505  |
+
+
+#### Example
 ```
 SELECT payment_id, payment.customer_id,first_name
 FROM payment
@@ -51,13 +73,27 @@ ON payment.customer_id = customer.customer_id;
 ```
 Output:
 
-| |payment_id|customer_id|first_name |
-|--|---------|-----------|-----------|
-| 1|17503    | 314       | Peter     |
-| 2|17503    | 314       | Peter     |
-| 3|17504    | 314       | Peter     |
-| 4|17505    | 314       | Peter     |
-| 5|17506    | 314       | Peter     |
+|  |payment_id|customer_id|first_name |
+|--|---------|-----------|------------|
+| 1|17503    | 314       | Peter      |
+| 2|17503    | 314       | Peter      |
+| 3|17504    | 314       | Peter      |
+| 4|17505    | 314       | Peter      |
+| 5|17506    | 314       | Peter      |
       
 #
 ### FULL OUTER JOINS
+
+
+#
+### LEFT OUTER JOINS
+
+
+
+
+#
+### RIGHT OUTER JOINS
+
+
+#
+### UNION
