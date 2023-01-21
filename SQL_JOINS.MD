@@ -59,4 +59,5 @@ Output:
 | 4|17505    | 314       | Peter     |
 | 5|17506    | 314       | Peter     |
       
-
+#
+### FULL OUTER JOINS
