@@ -104,11 +104,50 @@ WHERE customer.customer_id IS NULL
 OR payment.payment_id IS NULL;
 ```
 
-
 #
 ### LEFT OUTER JOINS
+Table order **DOES** matters for LEFT OUTER JOIN.
 
+It will retrun an **NULL** values from Logins table if ther are some present.
 
+```
+SELECT * FROM Registrations
+LEFT OUTER JOIN Logins
+ON Registrations.name = Logins.name
+```
+
+#### LEFT OUTER JOIN with WHERE Statement
+What if we only wanted entries unique to Table A?
+
+Those rows found in Table A and **NOT** found in Table B.
+
+#### Returns the _null_ values from the _Logins_ table for the _name_ column.
+```
+SELECT * FROM Registrations
+LEFT OUTER JOIN Logins
+ON Registrations.name = Logins.name
+WHERE Logins.name IS NULL
+```
+
+#### Returns the new table where _film_id_ column is a starting point and in that order.
+
+```
+SELECT film.film_id, title, inventory_id, store_id
+FROM film
+LEFT OUTER JOIN inventory ON
+film.film_id = inventory.film_id
+WHERE inventory.film_id IS null;
+```
+
+Output:
+
+|  |film_id  |title              |inventory_id | store_id|
+|--|---------|-------------------|-------------|---------|
+| 1|14       | Alice Fantasia    | null        |null     |
+| 2|33       | Apollo Teen"      | null        |null     |
+| 3|33       | Argonauts Town    | null        |null     |
+| 4|33       | Ark Ridgemont"    | null        |null     |
+| 5|33       | Arsenic Independence   | null        |null     |
 
 
 #
