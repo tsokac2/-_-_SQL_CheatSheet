@@ -42,12 +42,12 @@ HAVING SUM(amount) > 100;
 ```
 #
 ### INNER JOIN
-Will result with the set of records that **"match in both"** tables.
+This will result in the set of records that **"match in both"** tables.
 
 
 #### Example - Returns new table where _reg_id_, _name_ and _log_id_ both have values
 
-_Logins.name_ is a column that is present in both tables so we need to specifi from witch table we wand _name_ to be used
+_Logins.name_ is a column that is present in both tables so we need to specify  from which table we want _name_ to be used
 
 ```
 SELECT reg_id,Logins.name,log_id
@@ -83,6 +83,26 @@ Output:
       
 #
 ### FULL OUTER JOINS
+This will result in the set of records that are not **"match in both"** tables returning a **null** value for an empty record.
+
+#### Returning table _customer_ and _table_ payment merged together with all values from both tables.
+
+```
+SELECT * FROM customer
+FULL OUTER JOIN payment
+ON customer.customer_id = payment.customer_id;
+```
+
+#### FULL OUTER JOIN with WHERE Statement
+Returning table _customer_ and table _payment_ merged together but excluding the rows that have **null** value either in _customer_ or _payment_ table.
+
+```
+SELECT * FROM customer
+FULL OUTER JOIN payment
+ON customer.customer_id = payment.customer_id
+WHERE customer.customer_id IS NULL
+OR payment.payment_id IS NULL;
+```
 
 
 #
