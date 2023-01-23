@@ -55,7 +55,7 @@ FROM Registrations
 INNER JOIN Logins
 ON Registrations.name = Logins.name
 ```
-Output:
+#### Output:
 
 |  |reg_id   |name       |log_id   |
 |--|---------|-----------|---------|
@@ -139,7 +139,7 @@ film.film_id = inventory.film_id
 WHERE inventory.film_id IS null;
 ```
 
-Output:
+#### Output:
 
 |  |film_id  |title              |inventory_id | store_id|
 |--|---------|-------------------|-------------|---------|
