@@ -152,7 +152,15 @@ WHERE inventory.film_id IS null;
 
 #
 ### RIGHT OUTER JOINS
+Is essentially the same as a LEFT OUTER JOIN except the tables are switched.
 
+This would be the same as switching the table order in a LEFT OUTER JOIN.
+
+```
+SELECT * FROM TableA
+RIGHT OUTER JOIN TableB
+ON TableA.col_match = TableB.col_match;
+```
 
 #
 ### UNION
