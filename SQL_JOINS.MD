@@ -152,9 +152,9 @@ WHERE inventory.film_id IS null;
 
 #
 ### RIGHT OUTER JOINS
-Is essentially the same as a LEFT OUTER JOIN except the tables are switched.
+Is essentially the same as a **LEFT OUTER JOIN** except the tables are switched.
 
-This would be the same as switching the table order in a LEFT OUTER JOIN.
+This would be the same as switching the table order in a **LEFT OUTER JOIN.**
 
 ```
 SELECT * FROM TableA
@@ -164,3 +164,30 @@ ON TableA.col_match = TableB.col_match;
 
 #
 ### UNION
+UNION operator is used to combine the result-set of two or more SELECT statements.
+
+It basically serves to directly concatenate two results together, essentially "pasting" them together.
+
+```
+SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2
+```
+
+#### Example Returns the new table that is UNION of Sales2021_Q1 and Sales2021_Q2.
+
+```
+SELECT * FROM Sales2021_Q1 
+UNION
+SELECT * FROM Sales2022_Q2
+ORDER BY name;
+```
+
+#### Output:
+
+|  |name     |amount |
+|--|---------|-------|
+| 1| David   | 100   | 
+| 2| David   | 200   |
+| 3| Claire  | 50    |
+| 4| Claire  | 100   |
