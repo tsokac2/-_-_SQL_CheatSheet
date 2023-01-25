@@ -138,3 +138,16 @@ Calculates and returns the current age given a timestamp
 General function convert data types to text. Useful for timestamp formatting:
 
 `` TO_CHAR(date_col, 'mm-dd-yyyy') ``
+
+#### Example for a _payment_date_ formating
+
+```
+SELECT TO_CHAR(payment_date,'MM-DD-YYYY') 
+FROM payment;
+```
+
+### Output
+
+|  |to_char |
+|--|--------|
+| 1| 02-15-2007|
