@@ -144,11 +144,9 @@ WHERE inventory.film_id IS null;
 |  |film_id  |title              |inventory_id | store_id|
 |--|---------|-------------------|-------------|---------|
 | 1|14       | Alice Fantasia    | null        |null     |
-| 2|33       | Apollo Teen"      | null        |null     |
+| 2|33       | Apollo Teen       | null        |null     |
 | 3|33       | Argonauts Town    | null        |null     |
-| 4|33       | Ark Ridgemont"    | null        |null     |
-| 5|33       | Arsenic Independence   | null        |null     |
-
+| 4|33       | Ark Ridgemont     | null        |null     |
 
 #
 ### RIGHT OUTER JOINS
@@ -191,3 +189,59 @@ ORDER BY name;
 | 2| David   | 200   |
 | 3| Claire  | 50    |
 | 4| Claire  | 100   |
+
+#
+### Challenge
+
+#### 01 - What are the emails of the customer who live in California?
+
+```
+SELECT district, email FROM customer
+INNER JOIN address
+ON address.address_id = customer.address_id
+WHERE district = 'California';
+```
+
+#### Output:
+
+|  |district    |email                                |
+|--|------------|-------------------------------------|
+| 1| California | patricia.johnson@sakilacustomer.org | 
+| 2| California | betty.white@sakilacustomer.org      |
+| 3| California | alice.stewart@sakilacustomer.org    |
+| 4| California | rosa.reynolds@sakilacustomer.org    |
+
+
+#### 02 - What are the emails of the customer who live in California?
+
+A customer walks in and is a huge fan of the actor **"Nick Wahlberg"** and wants to know which movies he is in.
+
+Get a list of all the movies "Nick Wahlberg" has been in.
+
+```
+SELECT title, first_name, last_name FROM film_actor
+INNER JOIN actor
+ON film_actor.actor_id = actor.actor_id
+INNER JOIN film
+ON film_actor.film_id = film.film_id
+WHERE first_name = 'Nick' AND last_name = 'Wahlberg';
+```
+
+#### Output:
+
+|  |title       |first_name |last_name        |
+|--|------------|-----------|-----------------|
+| 1| Adaptation Holes       | Nick | Wahlberg |
+| 2| Apache Divine"         | Nick | Wahlberg |
+| 3| Baby Hall              | Nick | Wahlberg |
+....
+
+|  |title       |first_name |last_name        |
+|--|------------|-----------|-----------------|
+|23| Rushmore Mermaid | Nick| Wahlberg        | 
+|24| Smile Earring    | Nick| Wahlberg        |
+|25| Wardrobe Phantom | Nick| Wahlberg        |
+
+
+
+
