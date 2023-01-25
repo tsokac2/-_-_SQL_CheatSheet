@@ -235,7 +235,7 @@ WHERE first_name = 'Nick' AND last_name = 'Wahlberg';
 | 2| Apache Divine"         | Nick | Wahlberg |
 | 3| Baby Hall              | Nick | Wahlberg |
 
-                ....
+### ...
 
 |  |title       |first_name |last_name        |
 |--|------------|-----------|-----------------|
