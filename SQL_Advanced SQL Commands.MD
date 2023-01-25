@@ -30,7 +30,7 @@ Show the value of a run-time parameter.
 
 ``SHOW TIMEZONE;``
 
-### Output
+### Output:
 
 |  |TimeZone      |
 |--|--------------|
@@ -38,7 +38,7 @@ Show the value of a run-time parameter.
 
 
 ``SELECT NOW();``
-### Output
+### Output:
 
 |  |now                           |
 |--|------------------------------|
@@ -81,7 +81,7 @@ FROM payment;
 |--|---------------------------|
 | 1| 2007-02-15 22:25:46.996577|
 
-### Output
+### Output:
 
 |  |my_year |
 |--|--------|
@@ -125,7 +125,7 @@ Calculates and returns the current age given a timestamp
 
 ``SELECT AGE(payment_date) FROM payment;``
 
-### Output
+### Output:
 
 |  |age |
 |--|--------|
@@ -140,14 +140,57 @@ General function convert data types to text. Useful for timestamp formatting:
 `` TO_CHAR(date_col, 'mm-dd-yyyy') ``
 
 #### Example for a _payment_date_ formating
-
 ```
 SELECT TO_CHAR(payment_date,'MM-DD-YYYY') 
 FROM payment;
 ```
-
-### Output
+### Output:
 
 |  |to_char |
 |--|--------|
 | 1| 02-15-2007|
+
+#
+### Challenge
+
+#### 01. During which months did payments occur?
+Format your answer to return back the full month name.
+
+```
+SELECT DISTINCT(TO_CHAR(payment_date,'MONTH')) 
+AS full_month
+FROM payment;
+```
+### Output:
+
+|  |full_month |
+|--|-----------|
+| 1| MARCH     |
+| 2| MAY       |
+| 3| FEBRUARY  |
+| 4| APRIL     |
+
+#### 02. How many payments occured on a Monday?
+
+**SOLUTION 1:**
+```
+SELECT COUNT(*) FROM payment
+WHERE (TO_CHAR(payment_date, 'FMDay')) = 'Monday';
+```
+**SOLUTION 2:**
+```
+SELECT COUNT(*) FROM payment
+WHERE EXTRACT(dow FROM payment_date) = 1;
+```
+### Output:
+
+|  |count |
+|--|------|
+| 1| 2948 |
+
+#
+## Mathematical Functions and Operators
+
+### [Docs - Mathematical Functions and Operators](https://www.postgresql.org/docs/12/functions-math.html)
+
+### 
