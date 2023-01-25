@@ -244,5 +244,3 @@ WHERE first_name = 'Nick' AND last_name = 'Wahlberg';
 |25| Wardrobe Phantom | Nick| Wahlberg        |
 
 
-
-
