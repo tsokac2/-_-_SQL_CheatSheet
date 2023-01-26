@@ -288,7 +288,9 @@ WHERE return_date BETWEEN '2005-05-29' AND '2005-05-30')
 ORDER BY film_id;
 ```
 
-### EXISTS Example - Returns at customer that made at least one payment grather than 11$.
+#
+## EXISTS
+#### Example - Returns at customer that made at least one payment grather than 11$.
 
 ```
 SELECT first_name, last_name
@@ -298,3 +300,35 @@ WHERE EXISTS
 WHERE p.customer_id = c.customer_id
 AND amount > 11)
 ```
+
+#
+## Self-Join
+* Is a query in which a table is joined to itself.
+* Self-joins are usefull for comparing values in a column of rows within the same table.
+* The self-join can be viewed as a join of two copies of the same table.
+* When using a self-join it is necessary to use an _**alias**_ ``AS`` for the table.
+
+
+#### Syntax
+```
+SELECT emp.name, report.name AS rep
+FROM employees AS emp
+JOIN employess AS report
+ON emp.emp_id = report.report_id;
+```
+
+#### Example - Find all the films pair that have same length in minutes and set tow sets of film _title_.
+
+```
+SELECT f1.title, f2.title, f1.length
+FROM film AS f1
+INNER JOIN film AS f2 ON 
+f1.FILM_ID != f2.film_id
+AND f1.length = f2.length;
+```
+
+### Output:
+
+|  |title    |title     |length    |
+|--|---------|---------|----------|
+| 1| Chamber Italian | Resurrection Silverado | 117 |
