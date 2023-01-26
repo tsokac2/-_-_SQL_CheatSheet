@@ -193,4 +193,26 @@ WHERE EXTRACT(dow FROM payment_date) = 1;
 
 ### [Docs - Mathematical Functions and Operators](https://www.postgresql.org/docs/12/functions-math.html)
 
-### 
+### ROUND function with 4 decimal places and converted in to %.
+
+```
+SELECT ROUND(rental_rate/replacement_cost, 4) * 100 AS percent_cost
+FROM film;
+```
+
+### Output:
+
+|  |percent_cost |
+|--|-------------|
+| 1| 33.2900     |
+| 2| 24.9600     |
+| 3| 31.2100     |
+| 4| 38.4100     |
+| 5| 4.7200      |
+| 6| 38.4100     |
+| 7| 15.2900     |
+| 8| 11.0800     |
+
+#
+## String Functions and Operators
+### ### [Docs - Mathematical Functions and Operators]()
