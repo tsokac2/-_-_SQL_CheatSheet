@@ -261,3 +261,30 @@ FROM customer;
 | 2| msmith@gmail.com |
 
 
+### SubQuery
+Allows you to construct complex queries, essentially performing a query on the results of another query.
+
+Good pratice, always start writing the subQuery first then the main query.
+
+#### Example - Returns rental_rate grather then avarage rental_rate
+
+```
+SELECT title, rental_rate
+FROM film
+WHERE rental_rate > (SELECT AVG(rental_rate) FROM film);
+```
+
+#### Example - SubQuery using INNER JOIN and returning multiple results with IN operator.
+
+```
+SELECT film_id, title
+FROM film
+WHERE film_id IN
+(SELECT inventory.film_id
+FROM rental
+INNER JOIN inventory ON inventory.inventory_id = rental.inventory_id
+WHERE return_date BETWEEN '2005-05-29' AND '2005-05-30')
+ORDER BY film_id;
+```
+
+### 
