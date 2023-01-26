@@ -215,4 +215,49 @@ FROM film;
 
 #
 ## String Functions and Operators
-### ### [Docs - Mathematical Functions and Operators]()
+### ### [Docs - Mathematical Functions and Operators](https://www.postgresql.org/docs/15/functions-string.html)
+
+
+### LENGTH - returns a number of charaters for every row
+
+``SELECT LENGTH(frist_name) FROM customer;``
+
+### Output:
+
+|  |length |
+|--|-------|
+| 1| 5     |
+| 2| 4     |
+| 3| 8     |
+| 4| 5     |
+
+
+### Concatenates the two strings with space between them.
+
+```
+SELECT first_name || ' ' || last_name AS full_name
+FROM customer;
+```
+
+### Concatenates the two strings with space between them and converts to _UPPER-case._
+
+```
+SELECT UPPER(first_name) || ' ' || UPPER(last_name) AS full_name
+FROM customer;
+```
+
+### Concatenates the 3 strings by creating a customer email with first_name first letter in _LOWER_, last_name in _LOWER_ and '@gmail.com' email extention.
+
+```
+SELECT LOWER(LEFT(first_name,1)) || LOWER(last_name) || '@gmail.com'
+AS custom_email
+FROM customer;
+```
+### Output:
+
+|  |custom_email      |
+|--|------------------|
+| 1| jely@gmail.com   |
+| 2| msmith@gmail.com |
+
+
