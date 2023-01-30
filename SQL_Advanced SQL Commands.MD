@@ -329,6 +329,55 @@ AND f1.length = f2.length;
 
 ### Output:
 
-|  |title    |title     |length    |
-|--|---------|---------|----------|
-| 1| Chamber Italian | Resurrection Silverado | 117 |
+|  |title            |title                   |length  |
+|--|-----------------|------------------------|--------|
+| 1| Chamber Italian | Resurrection Silverado | 117    |
+
+
+#
+## Challenge SQL Assessment
+
+### 01. How can you retrieve all the information from the cd.facilities table?
+``SELECT * FROM cd.facilities;``
+
+### 02. You want to print out a list of all of the facilities and their cost to members. How would you retrieve a list of only facility names and costs?
+``SELECT name, membercost FROM cd.facilities;``
+
+### 03. How can you produce a list of facilities that charge a fee to members?
+```
+SELECT * FROM cd.facilities
+WHERE membercost != 0;
+```
+
+### 04. How can you produce a list of facilities that charge a fee to members, and that fee is less than 1/50th of the monthly maintenance cost? Return the facid, facility name, member cost, and monthly maintenance of the facilities in question.
+
+```
+SELECT facid,name, membercost, monthlymaintenance 
+FROM cd.facilities
+WHERE membercost > 0 AND 
+membercost < (monthlymaintenance/50.0);
+```
+OR 
+```
+SELECT facid,name, membercost, monthlymaintenance 
+FROM cd.facilities
+WHERE membercost > 0 AND 
+membercost < ((1/50.0)*monthlymaintenance);
+```
+
+### Output:
+
+|  |facid |name         |membercost | monthlymaintenance|
+|--|------|-------------|-----------|-------------------|
+| 1| 4    | Massage Room 1 | 35        | 3000           |
+| 2| 5    | Massage Room 2 | 35        | 3000           |
+
+### 05. How can you produce a list of all facilities with the word 'Tennis' in their name?
+```
+SELECT *
+FROM cd.facilities
+WHERE name LIKE '%Tennis%';
+```
+
+### 06. How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.
+
