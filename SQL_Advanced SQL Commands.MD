@@ -215,7 +215,7 @@ FROM film;
 
 #
 ## String Functions and Operators
-### ### [Docs - Mathematical Functions and Operators](https://www.postgresql.org/docs/15/functions-string.html)
+### [Docs - Mathematical Functions and Operators](https://www.postgresql.org/docs/15/functions-string.html)
 
 
 ### LENGTH - returns a number of charaters for every row
@@ -381,3 +381,21 @@ WHERE name LIKE '%Tennis%';
 
 ### 06. How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.
 
+#### Using with OR Operator
+```
+SELECT *
+FROM cd.facilities
+WHERE facid=1 OR facid=5
+```
+#### Using without OR Operator
+```
+SELECT *
+FROM cd.facilities
+WHERE facid IN (1,5);
+```
+
+### 07. How can you produce a list of members who joined after the start of September 2012? Return the memid, surname, firstname, and joindate of the members in question.
+
+```
+
+```
