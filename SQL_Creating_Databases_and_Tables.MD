@@ -99,7 +99,6 @@ CREATE TABLE table_name(
 ```
 
 Creating new table _players_:
-
 ```
 CREATE TABLE players(
     player_id SERIAL TYPE PRIMARY KEY,
@@ -115,7 +114,6 @@ A sequence is often used as the primary key column in a table.
 It logs unique integer entries for you automatically upon insertion.
 
 #### Example
-
 ```
 CREATE TABLE account(
 	user_id SERIAL PRIMARY KEY,
@@ -172,7 +170,6 @@ UPDATE job
 SET job_name = 'President'
 WHERE job.job_id = 2;
 ```
-
 ### DELETE
 To remove rows from a table.
 
@@ -181,13 +178,58 @@ To remove rows from a table.
 DELETE FROM table
 WHERE row_id = 1;
 ```
-
 #### Delete rows based on their presence in other tables
 ```
 DELETE FROM tableA
 USING tableB
 WHERE tableA.id = tableB.id;
 ```
-
 #### Delete all rows from a table
 ``DELETE FROM table_name;``
+
+#### Delete one row with specific _job_name_ value of _"Cowboy"_ and show deleted row in a output table.
+```
+DELETE FROM job
+WHERE job_name = 'Cowboy'
+RETRUNING job_id, job_name;
+```
+#### Output:
+|job_id  |job_name|
+|--------|--------|
+| 3      | Cowboy |
+
+### ALTER
+Allows for changes to an existing table structure, such as:
+* Adding, droping, or renaming columns
+* Changing a columns' data type
+* Set DEFAULT values for a column
+* Add CHECK constraints
+* Rename table
+
+#### Rename Table
+```
+ALTER TABLE information
+RENAME TO new_info;
+```
+#### Rename just a column
+```
+ALTER new_info
+RENAME COLUMN person TO people;
+```
+#### Removing constrains from a table
+```
+INSERT INTO new_info(title)
+VALUES
+('some new title')
+```
+**ERROR**:
+_null value in column "person" of relation "new_info" violates not-null constraint
+DETAIL:  Failing row contains (1, some new title, null).
+SQL state: 23502_
+
+**FIX:**
+```
+ALTER TABLE new_info
+ALTER COLUMN person DROP NOT NULL;
+```
+### DROP Table
