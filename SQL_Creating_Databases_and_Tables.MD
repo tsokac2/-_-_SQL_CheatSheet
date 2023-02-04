@@ -87,10 +87,32 @@ Applied to the entire table rather than to an individual column.
 #### PRIMARY KEY(column_list)
 * allows you to define the primary key that consist of multiple columns.
 
-
 #
 ## CREATE Table
+### CREATE
+Common Simple Syntax
+```
+CREATE TABLE table_name(
+    column_name TYPE column_constraint,
+    column_name TYPE column_constraint,
+);
+```
 
+Creating new table _players_:
+
+```
+CREATE TABLE players(
+    player_id SERIAL TYPE PRIMARY KEY,
+    age SMALLINT NOT NULL
+);
+```
+
+### SERIAL
+A sequence is a special kind of database object that generates a sequence of integers.
+
+A sequence is often used as the primary key column in a table.
+
+It logs unique integer entries for you automatically upon insertion.
 
 
 
