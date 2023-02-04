@@ -126,8 +126,68 @@ CREATE TABLE account(
 	last_login TIMESTAMP
 );
 ```
-### INSERT
+### INSERT INTO
+Allows you to add in rows to a table.
 
+#### Example 1
+```
+INSERT INTO account(username, password, email, created_on)
+VALUES
+('Jose','password','jose@mail.com', CURRENT_TIMESTAMP);
+```
+#### Example 2
+```
+INSERT INTO job(job_name)
+VALUES
+('Astrounaut');
+```
+### UPDATE
+Keyword allows for the changing of values of the columns in a table.
 
+```
+UPDATE account
+SET last_login = CURRENT_TIMESTAMP;
+```
+#### Example 1
+```
+UPDATE account
+SET last_login = created_on
+```
+#### Output:
 
+|created_on  |last_login|
+|------|-----|
+| 2023-02-04 22:49:36.500633 | 2023-02-04 22:49:36.500633|
 
+#### Example 2 - Update a Timestamp value from another table.
+```
+UPDATE account_job
+SET hire_date = account.created_on
+FROM account
+WHERE account_job.user_id = account.user_id
+```
+#### Example 3 - Update a one row with specific id.
+```
+UPDATE job
+SET job_name = 'President'
+WHERE job.job_id = 2;
+```
+
+### DELETE
+To remove rows from a table.
+
+#### Delete one row in a table
+```
+DELETE FROM table
+WHERE row_id = 1;
+```
+
+#### Delete rows based on their presence in other tables
+```
+DELETE FROM tableA
+USING tableB
+WHERE tableA.id = tableB.id;
+```
+
+#### Delete all rows from a table
+``DELETE FROM table_name;``
